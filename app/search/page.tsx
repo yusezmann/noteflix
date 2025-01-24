@@ -1,14 +1,12 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { useSearchMedia } from "@/hooks/use-movies"
 import { Navbar } from "@/components/navbar"
 import MovieCard from "@/components/movie-card"
 import PaginationButton from "@/components/pagination-button"
 import { BeatLoader } from "react-spinners"
-import Link from "next/link"
-import { IoArrowBackCircleOutline } from "react-icons/io5"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 
@@ -69,26 +67,34 @@ export default function SearchPage() {
           </div>
         </div>
 
-        {isLoading ? (
-          <div className="flex justify-center items-center min-h-[50vh]">
-            <BeatLoader color="#e85f4c" size="25px" />
-          </div>
-        ) : searchResults && searchResults.results.length > 0 ? (
-          <>
-            <MovieCard title="" items={searchResults.results} />
-            <div className="py-4 pb-4">
-              <PaginationButton
-                currentPage={currentPage}
-                totalPages={searchResults.total_pages}
-                onPageChange={handlePageChange}
-              />
+        <Suspense
+          fallback={
+            <div className="flex justify-center items-center min-h-[50vh]">
+              <BeatLoader color="#e85f4c" size="25px" />
             </div>
-          </>
-        ) : (
-          <p className="text-white text-center py-10">
-            No results found for "{query}"
-          </p>
-        )}
+          }
+        >
+          {isLoading ? (
+            <div className="flex justify-center items-center min-h-[50vh]">
+              <BeatLoader color="#e85f4c" size="25px" />
+            </div>
+          ) : searchResults && searchResults.results.length > 0 ? (
+            <>
+              <MovieCard title="" items={searchResults.results} />
+              <div className="py-4 pb-4">
+                <PaginationButton
+                  currentPage={currentPage}
+                  totalPages={searchResults.total_pages}
+                  onPageChange={handlePageChange}
+                />
+              </div>
+            </>
+          ) : (
+            <p className="text-white text-center py-10">
+              No results found for "{query}"
+            </p>
+          )}
+        </Suspense>
       </div>
     </div>
   )
