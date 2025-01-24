@@ -170,7 +170,7 @@ export function MovieDetail({ id, mediaType }: MovieDetailProps) {
             ))}
           </div>
         </div>
-        <div className="p-4 md:p-8 lg:p-16 space-y-4 md:space-y-6 max-w-3xl">
+        <div className="p-4 md:p-8 lg:p-16 space-y-4 md:space-y-6 max-w-3xl max-h-full">
           {castData && castData.cast.length > 0 && (
             <div className="mt-8">
               <h2 className="text-2xl font-bold text-white mb-4">Cast</h2>
