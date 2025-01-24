@@ -160,10 +160,10 @@ export async function fetchMediaVideos(
   return data
 }
 
-export async function searchMedia(
+export const searchMedia = async (
   query: string,
   page = 1,
-): Promise<SearchResults> {
+): Promise<SearchResults> => {
   try {
     const response = await fetch(
       `${BASE_URL}/search/multi?api_key=${API_KEY}&query=${encodeURIComponent(
