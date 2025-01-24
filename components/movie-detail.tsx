@@ -14,6 +14,7 @@ import { IoArrowBackCircleOutline } from "react-icons/io5"
 import { FaStar } from "react-icons/fa"
 import { useRouter } from "next/navigation"
 import { MyListItem, useMyListStore } from "@/store/use-my-list-store"
+import { useState } from "react"
 
 interface MovieDetailProps {
   id: number
@@ -22,6 +23,8 @@ interface MovieDetailProps {
 
 export function MovieDetail({ id, mediaType }: MovieDetailProps) {
   const router = useRouter()
+
+  const [showFullOverview, setShowFullOverview] = useState(false)
 
   const {
     data: media,
@@ -130,7 +133,18 @@ export function MovieDetail({ id, mediaType }: MovieDetailProps) {
             </Button>
           </div>
           <p className="text-white text-sm md:text-base lg:text-lg">
-            {media.overview}
+            {showFullOverview
+              ? media.overview
+              : `${media.overview.slice(0, 300)}...`}
+            {media.overview.length > 300 && (
+              <Button
+                variant="link"
+                onClick={() => setShowFullOverview(!showFullOverview)}
+                className="text-blue-400 hover:text-blue-300 ml-2"
+              >
+                {showFullOverview ? "Show Less" : "Read More"}
+              </Button>
+            )}
           </p>
           <div className="flex flex-wrap gap-4 text-sm text-gray-400">
             <p>Release Date: {media.release_date}</p>
