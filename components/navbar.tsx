@@ -86,19 +86,19 @@ export function Navbar() {
             </DropdownMenu>
           </div>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 xl:space-x-4">
           <SearchForm />
           <Button
             variant="ghost"
             size="icon"
-            className="text-white rounded-full hover:bg-slate-50 hover:text-accent-foreground"
+            className="hidden xl:flex text-white  rounded-full hover:bg-slate-50 hover:text-accent-foreground"
           >
             <Bell className="h-5 w-5" />
           </Button>
           <Button
             variant="ghost"
             size="icon"
-            className="text-white rounded-full hover:bg-slate-50 hover:text-accent-foreground"
+            className="hidden xl:flex text-white  rounded-full hover:bg-slate-50 hover:text-accent-foreground"
           >
             <User className="h-5 w-5" />
           </Button>
