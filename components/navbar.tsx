@@ -30,7 +30,7 @@ export function Navbar() {
       }`}
     >
       <div className="px-4 md:px-16 py-6 flex items-center justify-between">
-        <div className="flex flex-col md:flex-col xl:flex-row items-center space-x-8">
+        <div className="relative flex flex-col xl:flex-row items-center space-x-8">
           <Link href="/" className="text-red-600 text-2xl font-bold">
             NOTEFLIX
           </Link>

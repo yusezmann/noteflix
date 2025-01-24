@@ -11,10 +11,10 @@ export function Footer() {
           <Link href="/" className="text-red-600 text-2xl font-bold mr-2">
             NOTEFLIX
           </Link>
-          <p className="flex flex-row">
+          <span className="flex flex-row">
             <span>©</span>&nbsp;<span>{new Date().getFullYear()}</span>
             <span className="ml-2">All rights reserved.</span>
-          </p>
+          </span>
         </p>
         <div className="flex space-x-4">
           <a

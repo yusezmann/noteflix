@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${bebasNeue.variable} ${notoSans.variable}`}>
         <QueryProvider>{children}</QueryProvider>
         <Footer />
