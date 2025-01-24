@@ -29,7 +29,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${bebasNeue.variable} ${notoSans.variable}`}>
         <QueryProvider>{children}</QueryProvider>
-
         <Footer />
       </body>
     </html>
