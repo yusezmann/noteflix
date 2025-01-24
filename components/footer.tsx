@@ -5,15 +5,17 @@ import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-[#010511] text-gray-600 py-8 border-t border-gray-600 px-4">
+    <footer className="bg-[#010511] text-gray-600 py-8 border-t border-gray-600 px-4 pt-6">
       <div className="container mx-auto ">
         <div className="flex items-center justify-between text-center">
-          <p className="text-sm">
+          <p className="text-sm flex flex-col xl:flex-row items-center justify-center">
             <Link href="/" className="text-red-600 text-2xl font-bold mr-2">
               NOTEFLIX
             </Link>
-            © {new Date().getFullYear()}
-            <span className="ml-2">All rights reserved.</span>
+            <p className="flex">
+              © {new Date().getFullYear()}
+              <span className="ml-2">All rights reserved.</span>
+            </p>
           </p>
           <div className="flex space-x-4">
             <a

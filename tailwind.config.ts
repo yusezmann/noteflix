@@ -13,6 +13,12 @@ const config: Config = {
       primary: "var(--font-bebas-neue)",
       secondary: "var(--font-noto-sans)",
     },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1200px",
+    },
     extend: {
       colors: {
         background: "hsl(var(--background))",

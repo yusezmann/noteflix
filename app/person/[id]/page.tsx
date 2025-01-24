@@ -74,6 +74,11 @@ export default function CastProfilePage({
         </div>
         {/* Image and Biography */}
         <div className="flex flex-col xl:grid xl:grid-cols-2 gap-8  mb-12">
+          <div className="block xl:hidden">
+            <h1 className=" text-white text-3xl md:text-4xl font-bold">
+              {name}
+            </h1>
+          </div>
           <Image
             src={
               profile_path
@@ -86,7 +91,7 @@ export default function CastProfilePage({
             className="rounded-lg w-[490px] h-[560px]  object-cover mb-4 xl:mb-0 xl:mr-8"
           />
           <div className="text-white space-y-8">
-            <div>
+            <div className="hidden xl:block">
               <h1 className="text-3xl md:text-4xl font-bold">{name}</h1>
             </div>
             <div>

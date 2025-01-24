@@ -30,11 +30,11 @@ export function Navbar() {
       }`}
     >
       <div className="px-4 md:px-16 py-6 flex items-center justify-between">
-        <div className="flex flex-col xl:flex-row items-center space-x-8">
+        <div className="flex flex-col md:flex-col xl:flex-row items-center space-x-8">
           <Link href="/" className="text-red-600 text-2xl font-bold">
             NOTEFLIX
           </Link>
-          <div className="mr-12 space-x-4">
+          <div className="space-x-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="text-white">
