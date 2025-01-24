@@ -67,6 +67,7 @@ export default function SearchPage() {
           </div>
         </div>
 
+        {/* Wrap the search results section in Suspense */}
         <Suspense
           fallback={
             <div className="flex justify-center items-center min-h-[50vh]">
