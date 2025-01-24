@@ -35,7 +35,7 @@ export default function SearchForm() {
       ) : (
         <form
           onSubmit={handleSubmit}
-          className="absolute top-[-18px] left-12 xl:left-[98px] rounded-md flex items-center w-56 bg-transparent" // Ubah w-72 menjadi w-56
+          className="absolute top-[-18px] left-[110px] xl:left-[98px] rounded-md flex items-center w-56 bg-transparent" // Ubah w-72 menjadi w-56
         >
           <input
             type="text"
