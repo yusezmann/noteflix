@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, Suspense } from "react"
+import { Suspense, useEffect, useState } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { useSearchMedia } from "@/hooks/use-movies"
 import { Navbar } from "@/components/navbar"
@@ -41,40 +41,39 @@ export default function SearchPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-black">
-      <Navbar />
-      <div className="flex-grow pt-20 px-4 md:px-16">
-        <div className="pt-2">
-          <h1 className="text-2xl md:text-3xl text-white mb-4">
-            Search Results for "{query}"
-          </h1>
-          <div className="flex justify-between items-center">
-            <Button
-              variant="outline"
-              size="icon"
-              className="text-white hover:bg-white hover:text-primary rounded-full"
-              onClick={handleBackClick}
-            >
-              <ArrowLeft className="h-6 w-6" />
-            </Button>
-            <div className="flex text-white text-sm italic">
-              <p className="ml-2">Page</p>
-              <p className="ml-2">{currentPage}</p>
-              <p className="ml-2">of</p>
-              <p className="ml-2">{searchResults?.total_pages} </p>
-              <p className="ml-2">results</p>
+    <Suspense
+      fallback={
+        <div className="flex justify-center items-center min-h-[50vh]">
+          <BeatLoader color="#e85f4c" size="25px" />
+        </div>
+      }
+    >
+      <div className="min-h-screen flex flex-col bg-black">
+        <Navbar />
+        <div className="flex-grow pt-20 px-4 md:px-16">
+          <div className="pt-2">
+            <h1 className="text-2xl md:text-3xl text-white mb-4">
+              Search Results for "{query}"
+            </h1>
+            <div className="flex justify-between items-center">
+              <Button
+                variant="outline"
+                size="icon"
+                className="text-white hover:bg-white hover:text-primary rounded-full"
+                onClick={handleBackClick}
+              >
+                <ArrowLeft className="h-6 w-6" />
+              </Button>
+              <div className="flex text-white text-sm italic">
+                <p className="ml-2">Page</p>
+                <p className="ml-2">{currentPage}</p>
+                <p className="ml-2">of</p>
+                <p className="ml-2">{searchResults?.total_pages} </p>
+                <p className="ml-2">results</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Wrap the search results section in Suspense */}
-        <Suspense
-          fallback={
-            <div className="flex justify-center items-center min-h-[50vh]">
-              <BeatLoader color="#e85f4c" size="25px" />
-            </div>
-          }
-        >
           {isLoading ? (
             <div className="flex justify-center items-center min-h-[50vh]">
               <BeatLoader color="#e85f4c" size="25px" />
@@ -95,8 +94,8 @@ export default function SearchPage() {
               No results found for "{query}"
             </p>
           )}
-        </Suspense>
+        </div>
       </div>
-    </div>
+    </Suspense>
   )
 }
