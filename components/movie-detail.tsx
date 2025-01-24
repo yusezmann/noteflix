@@ -135,8 +135,8 @@ export function MovieDetail({ id, mediaType }: MovieDetailProps) {
           <p className="text-white text-sm md:text-base lg:text-lg">
             {showFullOverview
               ? media.overview
-              : `${media.overview.slice(0, 300)}...`}
-            {media.overview.length > 300 && (
+              : `${media.overview.slice(0, 200)}...`}
+            {media.overview.length > 200 && (
               <Button
                 variant="link"
                 onClick={() => setShowFullOverview(!showFullOverview)}
