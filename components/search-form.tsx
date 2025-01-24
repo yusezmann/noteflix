@@ -94,7 +94,7 @@ export default function SearchForm() {
       ) : (
         <form
           onSubmit={handleSubmit}
-          className="absolute top-[-18px] left-10 rounded-md flex items-center w-72 bg-transparent"
+          className="absolute top-[-18px] left-12 xl:left-10 rounded-md flex items-center w-72 bg-transparent"
         >
           <input
             type="text"
