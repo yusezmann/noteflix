@@ -73,7 +73,7 @@ export default function CastProfilePage({
           </Button>
         </div>
         {/* Image and Biography */}
-        <div className="grid grid-cols-2 gap-8  mb-12">
+        <div className="flex flex-col xl:grid xl:grid-cols-2 gap-8  mb-12">
           <Image
             src={
               profile_path
