@@ -6,13 +6,13 @@ import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
 export function Footer() {
   return (
     <footer className="bg-[#010511] text-gray-600 py-8 border-t border-gray-600 px-4">
-      <div className="flex items-center justify-between text-center px-12">
+      <div className="flex items-center justify-between text-center px-6 xl:px-12">
         <p className="text-sm flex flex-col xl:flex-row items-center justify-center">
           <Link href="/" className="text-red-600 text-2xl font-bold mr-2">
             NOTEFLIX
           </Link>
-          <p className="flex">
-            © {new Date().getFullYear()}
+          <p className="flex flex-row">
+            <span>©</span>&nbsp;<span>{new Date().getFullYear()}</span>
             <span className="ml-2">All rights reserved.</span>
           </p>
         </p>
