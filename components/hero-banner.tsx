@@ -7,6 +7,7 @@ import type { MediaItem } from "@/services/tmdb-service"
 import Link from "next/link"
 import { VideoPlayer } from "@/components/video-player"
 import { useMediaVideos } from "@/hooks/use-movies"
+import { useState } from "react"
 
 interface HeroBannerProps {
   media: MediaItem
@@ -17,6 +18,7 @@ export function HeroBanner({ media }: HeroBannerProps) {
   const trailer = videos?.results?.find(
     (video) => video.type === "Trailer" && video.site === "YouTube",
   )
+  const [showFullOverview, setShowFullOverview] = useState(false)
 
   return (
     <div className="relative h-[85vh] w-full">
@@ -32,8 +34,19 @@ export function HeroBanner({ media }: HeroBannerProps) {
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white">
           {media.title}
         </h1>
-        <p className="text-sm md:text-base lg:text-lg text-white line-clamp-3">
-          {media.overview}
+        <p className="text-white text-sm md:text-base lg:text-lg">
+          {showFullOverview
+            ? media.overview
+            : `${media.overview.slice(0, 100)}...`}
+          {media.overview.length > 100 && (
+            <Button
+              variant="link"
+              onClick={() => setShowFullOverview(!showFullOverview)}
+              className="text-blue-400 hover:text-blue-300 ml-2"
+            >
+              {showFullOverview ? "Show Less" : "Read More"}
+            </Button>
+          )}
         </p>
         <div className="flex flex-wrap gap-4">
           {trailer && <VideoPlayer videoKey={trailer.key} />}
