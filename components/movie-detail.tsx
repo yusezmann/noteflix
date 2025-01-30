@@ -83,7 +83,7 @@ export function MovieDetail({ id, mediaType }: MovieDetailProps) {
   )
 
   return (
-    <div className="relative min-h-[150vh] xl:min-h-screen">
+    <div className="relative min-h-[160vh] xl:min-h-screen">
       <Image
         src={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}
         alt={media.title || ""}
@@ -187,8 +187,8 @@ export function MovieDetail({ id, mediaType }: MovieDetailProps) {
         <div className="p-4 md:p-8 lg:p-16 space-y-4 md:space-y-6 max-w-3xl overflow-hidden mb-8">
           {castData && castData.cast.length > 0 && (
             <div className="mt-8">
-              <h2 className="text-2xl font-bold text-white mb-4">Cast</h2>
-              <div className="grid grid-cols-3 xl:grid-cols-5 lg:grid-cols-5 gap-4 max-h-[400px] overflow-y-auto">
+              <h2 className="text-2xl font-bold text-white mb-8">Cast</h2>
+              <div className="grid grid-cols-3 xl:grid-cols-5 lg:grid-cols-5 gap-4">
                 {castData.cast.map((member) => (
                   <Link key={member.id} href={`/person/${member.id}`}>
                     <div className="flex flex-col items-center text-center group cursor-pointer">
