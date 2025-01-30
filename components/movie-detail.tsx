@@ -83,7 +83,7 @@ export function MovieDetail({ id, mediaType }: MovieDetailProps) {
   )
 
   return (
-    <div className="relative min-h-[180vh] xl:min-h-screen">
+    <div className="relative min-h-[200vh] xl:min-h-screen">
       <Image
         src={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}
         alt={media.title || ""}
